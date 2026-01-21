@@ -45,7 +45,7 @@ from sbf_parser import SbfParser, load
 
 # Open your files 
 with open("sbf_files/log_0000.sbf", "rb") as fobj:
-    for block_type, infos in load(fobj.read()):
+    for block_type, infos in load(fobj):
         print(block_type, infos)
 
 
