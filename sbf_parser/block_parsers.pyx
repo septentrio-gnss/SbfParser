@@ -2611,3 +2611,36 @@ def EncapsulatedOutput_toDict(c1 * data):
 
 BLOCKPARSERS['EncapsulatedOutput'] = EncapsulatedOutput_toDict
 
+def ISMR_toDict(c1 * data):
+    cdef ISMR * sb0 = <ISMR *>data
+
+    block_dict = {
+        'TOW': sb0.TOW,
+        'WNc': sb0.WNc,
+        'N': sb0.N,
+        'SBLength': sb0.SBLength,
+        'Reserved': sb0.Reserved,
+        'N_MSB': sb0.N_MSB,
+    }
+
+    sub_block_list = []
+    cdef ISMRChannel subblock
+    cdef size_t i = sizeof(ISMR)
+    for _ in xrange(sb0.N):
+        subblock = (<ISMRChannel*>(data + i))[0]
+        i += sb0.SBLength
+
+        sub_block_dict = {
+            'RXChannel': subblock.RXChannel,
+            'Type': subblock.Type,
+            'SVID': subblock.SVID,
+            'Reserved': subblock.Reserved,
+            'S4': subblock.S4,
+            'SigmaPhi': subblock.SigmaPhi,
+        }
+        sub_block_list.append(sub_block_dict)
+    block_dict['ISMRChannel'] = sub_block_list
+
+    return block_dict
+
+BLOCKPARSERS['ISMR'] = ISMR_toDict

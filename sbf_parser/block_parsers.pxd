@@ -1818,3 +1818,19 @@ cdef packed struct DatabaseStatus:
     u1 Reserved
     u4 NrItems
     u4 NrNotSync
+
+cdef packed struct ISMR:
+    u4 TOW
+    u2 WNc
+    u1 N
+    u1 SBLength
+    u1[3] Reserved
+    u1 N_MSB
+
+cdef packed struct ISMRChannel:
+    u1 RXChannel
+    u1 Type
+    u1 SVID
+    u1 Reserved
+    u2 S4
+    u2 SigmaPhi

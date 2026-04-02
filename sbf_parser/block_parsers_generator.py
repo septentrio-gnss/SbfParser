@@ -70,6 +70,7 @@ SUB_BLOCK_HANDLERS = {
     "MeasEpoch_Type_1": ("Type_2", "MeasEpoch_Type_2"),
     "ChannelStatus": ("SatInfo", "ChannelStatus_ChannelSatInfo"),
     "ChannelStatus_ChannelSatInfo": ("StateInfo", "ChannelStatus_ChannelStateInfo"),
+    "ISMR": ("ISMRChannel", "ISMRChannel"),
 
     # This block/sub-block needs nested Reserved array handling
     # You can make a PR for support or contact Septentrio for support.

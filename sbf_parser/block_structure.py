@@ -44,7 +44,7 @@ BLOCKNUMBERS = [
     4243, 4245, 5902,
     4103, 4015, 5936,
     4040, 4075, 4097,
-    4106, 4107,
+    4106, 4107, 4086,
 ]
 
 BLOCKNAMES = [
@@ -86,7 +86,7 @@ BLOCKNAMES = [
     'CosmosStatus',             'GALAuthStatus',            'ReceiverSetup',
     'RxMessage', 'Commands', 'Comment',
     'BBSamples', 'ASCIIIn', 'EncapsulatedOutput',
-    'GISAction', 'GISStatus'
+    'GISAction', 'GISStatus', 'ISMR',
 ]
 
 MeasEpoch = (
@@ -1866,4 +1866,22 @@ EncapsulatedOutput = (
     ('N', 'u2'),
     ('ReservedId', 'u2'),
     ('Payload', 'u1*'),
+)
+
+ISMR = (
+    ('TOW', 'u4'),
+    ('WNc', 'u2'),
+    ('N', 'u1'),
+    ('SBLength', 'u1'),
+    ('Reserved', 'u1[3]'),
+    ('N_MSB', 'u1'),
+)
+
+ISMRChannel = (
+    ('RXChannel', 'u1'),
+    ('Type', 'u1'),
+    ('SVID', 'u1'),
+    ('Reserved', 'u1'),
+    ('S4', 'u2'),
+    ('SigmaPhi', 'u2'),
 )
