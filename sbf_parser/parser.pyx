@@ -171,10 +171,12 @@ cdef list _parse(Memory* memory, uint8_t* data, size_t length, bint block_on_new
                     break
 
                 sept_header = (<SeptentrioHeader*>(current_ptr))[0]
-                sept_body_length = sept_header.Length - sept_header_LEN
-    
+
                 # Body
-                if sept_body_length > 0 and sept_body_length % 4 == 0:
+                # Check the raw Length before subtracting: the subtraction is
+                # unsigned, so a Length below the header size would wrap around.
+                if sept_header.Length > sept_header_LEN and sept_header.Length % 4 == 0:
+                    sept_body_length = sept_header.Length - sept_header_LEN
                     
                     if (memory.current + sept_header.Length) > memory.length:
                         break
