@@ -100,7 +100,7 @@ def MeasExtra_toDict(c1 * data):
         sub_block_dict = {
             'RxChannel': subblock.RxChannel,
             'Type': subblock.Type,
-            'MPCorrection ': subblock.MPCorrection ,
+            'MPCorrection': subblock.MPCorrection,
             'SmoothingCorr': subblock.SmoothingCorr,
             'CodeVar': subblock.CodeVar,
             'CarrierVar': subblock.CarrierVar,

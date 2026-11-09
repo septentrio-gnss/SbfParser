@@ -138,7 +138,7 @@ MeasExtra = (
 MeasExtraChannelSub = (
     ('RxChannel', 'u1'),
     ('Type', 'u1'),
-    ('MPCorrection ', 'i2'),
+    ('MPCorrection', 'i2'),
     ('SmoothingCorr', 'i2'),
     ('CodeVar', 'u2'),
     ('CarrierVar', 'u2'),
